@@ -1,4 +1,3 @@
-# *Predict-Perform*
 # Loading the Data
 Create a fresh environment and install the requirements.txt file
 ```unix
