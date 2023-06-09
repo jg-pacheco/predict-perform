@@ -64,7 +64,7 @@ def load_data(years=15):
                     playoff_df['Rk'])]
 
                 fix_cols_and_overwrite(szn_made_playoffs_df, csv_filename)
-                fix_cols_and_overwrite(playoff, playoff_file_path)
+                fix_cols_and_overwrite(playoff_df, playoff_file_path)
 
 
 def __main__():
