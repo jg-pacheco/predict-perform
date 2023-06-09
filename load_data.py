@@ -57,11 +57,11 @@ def load_data(years=15):
 
                 # remove duplicate values for players who were traded
                 # first value by default is season totals so okay to drop rest
-                szn_df_uniques = szn_df[~szn_df['Rk'].duplicated()]
+                szn_df.drop_duplicates(subset='Rk', inplace=True)
 
                 # drop players not in the playoffs
-                szn_made_playoffs_df = szn_df_uniques[szn_df_uniques['Rk'].isin(
-                    playoff_df['Rk'])]
+                szn_made_playoffs_df = szn_df.loc[szn_df['Rk'].isin(
+                    playoff_df['Rk']), :]
 
                 fix_cols_and_overwrite(szn_made_playoffs_df, csv_filename)
                 fix_cols_and_overwrite(playoff_df, playoff_file_path)
