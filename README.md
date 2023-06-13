@@ -7,8 +7,5 @@ conda activate predict-perform
 ```
 pip install -r requirements.txt
 ```
-Now you should be able to load the data using the following command. **Note: Only do this once as the website will ban you if repeated within an hour**
-```python
-python load_data.py
-```
+
 
