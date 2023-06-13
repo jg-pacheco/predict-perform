@@ -2,7 +2,9 @@ import csv
 import requests
 from bs4 import BeautifulSoup
 import pandas as pd
-
+import os
+import warnings
+warnings.filterwarnings('ignore')
 
 def fix_cols_and_overwrite(df, file_path):
     # Get a list of the column names
@@ -22,8 +24,10 @@ def fix_cols_and_overwrite(df, file_path):
 
 
 def load_data(years=15):
+    if not os.path.exists("data"):
+    	os.mkdir("data")
     season_type_strs = ["playoffs", "leagues"]
-    years = [2000 + x for x in range(22, 22-years, -1)]
+    years = [2000 + x for x in range(-5, -5-years, -1)]
     # we're stopping at 15 since that is the max requests before being shadow banned by the website
     for year in years:
         for szn_type in season_type_strs:
